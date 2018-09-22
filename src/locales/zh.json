@@ -1,0 +1,32 @@
+{
+  "org": {
+    "vue": {
+      "st": {
+        "testcafe": {
+          "dashboard": {
+            "title": "统计"
+          },
+          "build-status": {
+            "labels": {
+              "status": "状态",
+              "total": "全部",
+              "skipped": "忽略",
+              "processed": "处理",
+              "passed": "通过",
+              "failed": "失败",
+              "fixtures": "测试装置",
+              "warnings": "告警",
+              "startTime": "启动时间",
+              "endTime": "完成时间",
+              "duration": "持续时间",
+              "userAgents": "测试环境"
+            },
+            "Idle": "空闲",
+            "Processing": "处理中",
+            "Finished": "完成"
+          }
+        }
+      }
+    }
+  }
+}

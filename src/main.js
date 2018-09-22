@@ -13,10 +13,11 @@ Vue.use(VueProgress, {
 
 // 注册一个自定义组件
 // (工作原理类似 'Vue.component')
-ClientAddonApi.component('org.vue.st.testcafe.components.test', HelloWorld)
+ClientAddonApi.component('org.vue.st.testcafe.components.helloworld', HelloWorld)
 ClientAddonApi.component('org.vue.st.testcafe.components.dashboard', WebpackDashboard)
 ClientAddonApi.component('org.vue.st.testcafe.components.analyzer', WebpackAnalyzer)
 ClientAddonApi.component('org.vue.st.testcafe.components.statistics', TestCafeStatistics)
+ClientAddonApi.component('org.vue.st.testcafe.components.testview', TestView)
 
 // 在 vue-router 中为 /addon/<id> 添加子路由。
 // 例如，addRoutes('foo', [ { path: '' }, { path: 'bar' } ])

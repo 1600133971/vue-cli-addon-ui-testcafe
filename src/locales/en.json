@@ -1,8 +1,31 @@
 {
   "org": {
     "vue": {
-      "vue-webpack": {
-        "test-view": "I'm a custom view"
+      "st": {
+        "testcafe": {
+          "dashboard": {
+            "title": "Statistics"
+          },
+          "build-status": {
+            "labels": {
+              "status": "Status",
+              "total": "Total",
+              "skipped": "Skipped",
+              "processed": "Processed",
+              "passed": "Passed",
+              "failed": "Failed",
+              "fixtures": "Fixtures",
+              "warnings": "Warnings",
+              "startTime": "Start Time",
+              "endTime": "End Time",
+              "duration": "Duration",
+              "userAgents": "User Agents"
+            },
+            "Idle": "Idle",
+            "Processing": "Processing",
+            "Finished": "Finished"
+          }
+        }
       }
     }
   }

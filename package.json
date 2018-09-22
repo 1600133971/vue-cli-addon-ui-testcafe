@@ -1,8 +1,8 @@
 {
   "name": "vue-cli-addon-ui-testcafe",
-  "description": "vue-cli 3 ui addon to add TestCafe's statistics to your Vue Project",
+  "description": "vue-cli 3.x ui addon to add TestCafe's statistics to your Vue Project",
   "author": "1600133971",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "repository": {
     "type": "git",

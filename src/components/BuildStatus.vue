@@ -3,64 +3,75 @@
     <div class="content">
       <div class="info-block status">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.status') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.status') }}
         </div>
-        <div class="value">{{ $t(`org.vue.vue-webpack.dashboard.webpack-status.${status || 'Idle'}`) }}</div>
+        <div class="value">{{ $t(`org.vue.st.testcafe.build-status.${status || 'Idle'}`) }}</div>
       </div>
-      <div
-        class="info-block errors"
-        :class="{
-          emphasize: errors.length
-        }"
-      >
+      <div class="info-block total">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.errors') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.total') }}
         </div>
-        <div class="value">{{ errors.length }}</div>
+        <div class="value">{{ total }}</div>
       </div>
-      <div
-        class="info-block warnings"
-        :class="{
-          emphasize: warnings.length
-        }"
-      >
+      <div class="info-block skipped">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.warnings') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.skipped') }}
         </div>
-        <div class="value">{{ warnings.length }}</div>
+        <div class="value">{{ skipped }}</div>
       </div>
-      <div class="info-block assets">
+      <div class="info-block processed">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.assets') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.processed') }}
         </div>
-        <div class="value">
-          {{ assetsTotalSize | size('B') }}
-          <span class="secondary">
-            ({{ $t(`org.vue.vue-webpack.sizes.${sizeField}`) }})
-          </span>
-        </div>
+        <div class="value">{{ processed }}</div>
       </div>
-      <div class="info-block modules">
+      <div class="info-block passed">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.modules') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.passed') }}
         </div>
-        <div class="value">
-          {{ modulesTotalSize | size('B') }}
-          <span class="secondary">
-            ({{ $t(`org.vue.vue-webpack.sizes.${sizeField}`) }})
-          </span>
-        </div>
+        <div class="value">{{ passed }}</div>
       </div>
-      <div class="info-block dep-modules">
+      <div class="info-block failed">
         <div class="label">
-          {{ $t('org.vue.vue-webpack.dashboard.build-status.labels.deps') }}
+          {{ $t('org.vue.st.testcafe.build-status.labels.failed') }}
         </div>
-        <div class="value">
-          {{ depModulesTotalSize | size('B') }}
-          <span class="secondary">
-            {{ depSizeRatio | round(100) }}%
-          </span>
+        <div class="value">{{ failed }}</div>
+      </div>
+      <div class="info-block fixtures">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.fixtures') }}
         </div>
+        <div class="value">{{ fixtures }}</div>
+      </div>
+      <div class="info-block warnings">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.warnings') }}
+        </div>
+        <div class="value">{{ warnings }}</div>
+      </div>
+      <div class="info-block duration">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.duration') }}
+        </div>
+        <div class="value">{{ duration }}</div>
+      </div>
+      <div class="info-block startTime">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.startTime') }}
+        </div>
+        <div class="value">{{ startTime }}</div>
+      </div>
+      <div class="info-block endTime">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.endTime') }}
+        </div>
+        <div class="value">{{ endTime }}</div>
+      </div>
+      <div class="info-block userAgents">
+        <div class="label">
+          {{ $t('org.vue.st.testcafe.build-status.labels.userAgents') }}
+        </div>
+        <div class="value">{{ userAgents }}</div>
       </div>
     </div>
   </div>
@@ -71,34 +82,21 @@ import { mapGetters } from 'vuex'
 import { size, round } from '../filters'
 
 export default {
-  filters: {
-    size,
-    round
-  },
-
-  computed: {
-    ...mapGetters([
-      'sizeField',
-      'mode',
-      'errors',
-      'warnings',
-      'assetsTotalSize',
-      'modulesTotalSize',
-      'depModulesTotalSize'
-    ]),
-
-    depSizeRatio () {
-      if (this.modulesTotalSize) {
-        return this.depModulesTotalSize / this.modulesTotalSize * 100
-      } else {
-        return 0
-      }
-    }
-  },
-
+  // 同步共享的数据
   sharedData () {
     return {
-      status: `org.vue.webpack.${this.mode}-status`
+      status: 'build-status.status',
+      total: 'build-status.total',
+      skipped: 'build-status.skipped',
+      processed: 'build-status.processed',
+      passed: 'build-status.passed',
+      failed: 'build-status.failed',
+      fixtures: 'build-status.fixtures',
+      warnings: 'build-status.warnings',
+      startTime: 'build-status.startTime',
+      endTime: 'build-status.endTime',
+      duration: 'build-status.duration',
+      userAgents: 'build-status.userAgents'
     }
   }
 }

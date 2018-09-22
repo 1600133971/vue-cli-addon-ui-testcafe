@@ -82,11 +82,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   sharedData () {
-    return mapSharedData('org.vue.webpack.', {
-      status: `${this.mode}-status`,
-      rawProgress: `${this.mode}-progress`,
-      operations: `${this.mode}-operations`
-    })
+    return {
+      status: 'build-progress.status',
+      rawProgress: 'build-progress.progress',
+      operations: 'build-progress.operations'
+    }
   },
 
   computed: {
